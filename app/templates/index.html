@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="container my-4">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">ID автомобиля</th>
+          <th scope="col">Модель автомобиля</th>
+          <th scope="col">Номер</th>
+          <th scope="col">Резерв</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% if cars %}
+            {% for car in cars %}
+            <tr>
+              <th scope="row">{{ car.id }}</th>
+              <td>{{ car.car }}</td>
+              <td>{{ car.car_plate }}</td>
+              <td>{% if car.is_reserve == 1  %} Да {% else %} Нет {% endif %}</td>
+            </tr>
+            {% endfor %}
+        {% endif %}
+
+      </tbody>
+    </table>
+
+    <hr class="my-4">
+
+    <div class="d-flex">
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">+</span>
+        <input type="number" class="form-control" id="phone" placeholder="78005553535" aria-label="Username" aria-describedby="basic-addon1">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#deleteModal" data-url="{{ url_for('index') }}"> Отправить смс-код </button>
+      </div>
+    </div>
+
+</div>
+
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Подтверждение номера</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Введите код, отправленный на номер
+        "<span class="phone-number"></span>"
+
+        <form action=""  method="POST">
+          <input type="number" name="sms_code" id="sms_code" class="form-control">
+          <input class="d-none" type="submit" id="submit-delete">
+          <input type="hidden" id="phone_number" name="phone_number">
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+        <label for="submit-delete" class="btn btn-primary mb-0">Готово</label>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="{{ url_for('static', filename='phone_code.js')}}"></script>
+
+{% endblock %}
