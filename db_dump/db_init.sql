@@ -32,10 +32,10 @@ CREATE TABLE `cars` (
 --
 
 INSERT INTO `cars` (`id`, `car`, `car_plate`, `is_reserve`) VALUES
-(1, 'Kia Rio', 'о787оо50', 1),
-(2, 'VW Polo', 'е887ео777', 0),
-(3, 'VW Polo', 'м761он797', 1),
-(4, 'Toyota RAV4', 'н761он797', 1);
+(1, 'Kia Rio', 'o787oo50', 1),
+(2, 'VW Polo', 'e887eo777', 0),
+(3, 'VW Polo', 'm761oh797', 1),
+(4, 'Toyota RAV4', 'h761oh797', 1);
 
 -- --------------------------------------------------------
 
@@ -57,9 +57,9 @@ CREATE TABLE `trips` (
 --
 
 INSERT INTO `trips` (`id`, `phone_number`, `sms_code`, `car`, `car_plate`, `fuel_level`) VALUES
-(1, '+79846274627', 1420, 'Kia Rio', 'о787оо50', 76),
-(2, '+79175628572', 1100, 'VW Polo', 'м761он797', 56),
-(3, '+7916552451', 1100, 'Toyota RAV4', 'н761он797', 11);
+(1, '+79846274627', 1420, 'Kia Rio', 'o787oo50', 76),
+(2, '+79175628572', 1100, 'VW Polo', 'm761oh797', 56),
+(3, '+7916552451', 1100, 'Toyota RAV4', 'm761oh797', 11);
 
 --
 -- Индексы сохранённых таблиц
